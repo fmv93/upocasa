@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_upocasa_inmueble_form">
+			<field name="name">view_upocasa_inmueble_form</field>
+			<field name="model">inmueble</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<field name="inmueble_id" />
+					<field name="address" />
+					<field name="postal_code" />
+					<field name="price" />
+					<field name="data" />
+					<field name="score" />
+					<field name="visita_ids" colspan="4" mode="tree" nolabel="1">
+						<tree>
+							<field name="visit_date" />
+							<field name="cliente_dni" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upocasa_inmueble_tree_view">
+			<field name="name">view_upocasa_inmueble_tree_view</field>
+			<field name="model">inmueble</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="inmueble_id" />
+					<field name="address" />
+					<field name="postal_code" />
+					<field name="price" />
+					<field name="data" />
+					<field name="score" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="view_upocasa_inmueble_search" model="ir.ui.view">
+			<field name="name">view_upocasa_inmueble_search</field>
+			<field name="model">inmueble</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Agrupar por codigo postal">
+					<group expand="0" string="Agrupar por...">
+						<filter name="group_by_postalcode" string="Codigo postal"
+							context="{'group_by':'postal_code'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+
+		<record id="act_inmueble" model="ir.actions.act_window">
+			<field name="name">Inmuebles</field>
+			<field name="res_model">inmueble</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Inmuebles" id="inmueble_submenu" parent="upocasa"
+			sequence="100" action="act_inmueble" />
+		<menuitem name="Ver inmuebles" id="ver_inmuebles_submenu"
+			parent="inmueble_submenu" sequence="150" action="act_inmueble" />
+	</data>
+</openerp>

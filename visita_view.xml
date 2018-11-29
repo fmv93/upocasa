@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upocasa_visita_form">
+			<field name="name">view_upocasa_visita_form</field>
+			<field name="model">visita</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<field name="inmueble_id"/>
+					<field name="visit_date" />
+					<field name="cliente_dni" colspan="4" mode="tree">
+						<tree>
+							<field name="name" />
+							<field name="dni" />
+						</tree>
+					</field>
+					<field name="inmueble_id" colspan="4" mode="tree">
+						<tree>
+							<field name="inmueble_id" />
+						</tree>
+					</field>
+
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_upocasa_visita_tree_view">
+			<field name="name">view_upocasa_visita_tree_view</field>
+			<field name="model">visita</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="visit_id" />
+					<field name="visit_date" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="visita_calendar_view">
+			<field name="name">visita_calendar_view</field>
+			<field name="model">visita</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<calendar string="Calendario de visitas" date_start="visit_date" color="inmueble_id">
+					<field name="visit_id" />
+					<field name="visit_date" />
+				</calendar>
+			</field>
+		</record>
+
+		<record id="act_visita" model="ir.actions.act_window">
+			<field name="name">Visitas</field>
+			<field name="res_model">visita</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,calendar</field>
+		</record>
+		<menuitem name="Visitas" id="visita_submenu" parent="upocasa"
+			sequence="100" action="act_visita" />
+		<menuitem name="Ver visitas" id="ver_visitas_submenu" parent="visita_submenu"
+			sequence="100" action="act_visita" />
+	</data>
+</openerp>
