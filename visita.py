@@ -29,7 +29,7 @@ class visita(osv.Model):
     _description = 'Visitas de un cliente a un inmueble'
  
     _columns = {
-        'visit_name': fields.integer('Id', size=9, required=True),
+        'visit_id': fields.integer('Id', size=9, required=True),
         'visit_date': fields.datetime('Fecha/Hora', size=60, required=True),
         
         'cliente_dni':fields.many2one('cliente', 'Cliente'),
