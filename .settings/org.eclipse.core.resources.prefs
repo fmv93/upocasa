@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding/__init__.py=utf-8
 encoding/__openerp__.py=utf-8
+encoding/cliente.py=utf-8
 encoding/inmueble.py=utf-8
 encoding/visita.py=utf-8

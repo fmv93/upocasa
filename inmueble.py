@@ -29,7 +29,7 @@ class inmueble(osv.Model):
     _description = 'Inmueble gestionado por la inmobiliaria'
  
     _columns = {
-        'inmueble_id': fields.integer('Id', size=9, required=True),
+        'name': fields.integer('Id', size=9, required=True),
         'address': fields.char('Direccion', size=60, required=True),
         'postal_code': fields.integer('Codigo postal', size=5, required=True),
         'price': fields.float('Precio', size=20, required=True),
