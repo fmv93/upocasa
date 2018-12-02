@@ -8,8 +8,8 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="form_string">
+					<field name="id_inmueble" />
 					<field name="name" />
-					<field name="address" />
 					<field name="postal_code" />
 					<field name="price" />
 					<field name="data" />
@@ -29,8 +29,8 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
+					<field name="id_inmueble" />
 					<field name="name" />
-					<field name="address" />
 					<field name="postal_code" />
 					<field name="price" />
 					<field name="data" />

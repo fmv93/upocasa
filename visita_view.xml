@@ -18,8 +18,8 @@
 					</field>
 					<field name="inmueble_id" colspan="4" mode="tree">
 						<tree>
+							<field name="id_inmueble" />
 							<field name="name" />
-							<field name="address" />
 							<field name="postal_code" />
 							<field name="price" />
 							<field name="data" />
@@ -52,8 +52,7 @@
 			<field name="arch" type="xml">
 				<calendar string="Calendario de visitas" date_start="visit_date"
 					color="inmueble_id">
-					<field name="name" />
-					<field name="visit_date" />
+					<field name="cliente_dni" />
 				</calendar>
 			</field>
 		</record>

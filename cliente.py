@@ -40,4 +40,3 @@ class cliente(osv.Model):
         
         'visita_ids':fields.one2many('visita', 'cliente_dni', 'Visitas concertadas'),
     }
-    
