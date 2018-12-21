@@ -39,4 +39,5 @@ class cliente(osv.Model):
         'interests': fields.text('Intereses'), 
         
         'visita_ids':fields.one2many('visita', 'cliente_dni', 'Visitas concertadas'),
+        'contrato_ids':fields.many2one('contrato', 'Contrato'),
     }

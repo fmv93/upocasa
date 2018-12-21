@@ -20,8 +20,21 @@
 #
 ##############################################################################
 
-import cliente
-import visita
-import inmueble
-import contrato
-import agente
+from osv import osv
+from osv import fields
+
+class contrato(osv.Model):
+
+    _name = 'contrato'
+    _description = 'Contrato de la relacion entre un cliente y un inmueble'
+ 
+    _columns = {
+        'name': fields.char('Id', size=9, required=True),
+        'date': fields.date('Fecha', size=100, required=True),
+        'buy': fields.boolean('Compra', required=False),
+        'lease': fields.boolean('Alquiler', required=False),
+        
+        'cliente_ids':fields.one2many('cliente', 'contrato_ids', 'Clientes', required=True),
+        'agente_dni_contrato':fields.many2one('agente', 'Agente', required=True),
+        'inmueble_id':fields.many2one('inmueble', 'Inmueble'),
+    }

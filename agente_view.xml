@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_upocasa_agente_form">
+			<field name="name">view_upocasa_agente_form</field>
+			<field name="model">agente</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<field name="name" />
+					<field name="lastname" />
+					<field name="dni" />
+					<field name="phone" />
+					<field name="visita_ids_agente" colspan="4">
+						<tree string="tree_string">
+							<field name="name" />
+							<field name="visit_date" />
+							<field name="cliente_dni" />
+							<field name="inmueble_id" />
+						</tree>
+					</field>
+					<field name="contrato_ids_agente" colspan="4">
+						<tree string="tree_string">
+							<field name="name" />
+							<field name="date" />
+							<field name="cliente_ids" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_upocasa_agente_tree_view">
+			<field name="name">view_upocasa_agente_tree_view</field>
+			<field name="model">agente</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="lastname" />
+					<field name="dni" />
+					<field name="phone" />
+					<field name="visita_ids_agente"/>
+					<field name="contrato_ids_agente"/>
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="act_agente" model="ir.actions.act_window">
+			<field name="name">Agentes</field>
+			<field name="res_model">agente</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Agentes" id="agente_submenu" parent="upocasa"
+			sequence="100" action="act_agente" />
+		<menuitem name="Ver agentes" id="ver_agentes_submenu" parent="agente_submenu"
+			sequence="150" action="act_agente" />
+	</data>
+</openerp>

@@ -20,8 +20,20 @@
 #
 ##############################################################################
 
-import cliente
-import visita
-import inmueble
-import contrato
-import agente
+from osv import osv
+from osv import fields
+
+class agente(osv.Model):
+
+    _name = 'agente'
+    _description = 'Agente de la inmobiliaria'
+ 
+    _columns = {
+        'dni': fields.char('DNI', size=9, required=True),
+        'name': fields.char('Nombre', size=60, required=True),
+        'lastname': fields.char('Apellidos', size=100, required=True),
+        'phone': fields.char('Telefono', size=60, required=True),
+        
+        'visita_ids_agente':fields.one2many('visita', 'agente_dni_visita', 'Visitas concertadas'),
+        'contrato_ids_agente':fields.one2many('contrato', 'agente_dni_contrato', 'Contratos realizados'),
+    }

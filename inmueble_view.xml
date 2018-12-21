@@ -14,6 +14,7 @@
 					<field name="price" />
 					<field name="data" />
 					<field name="score" />
+					<field name="contrato_id" />
 					<field name="visita_ids" colspan="4" mode="tree" nolabel="1">
 						<tree>
 							<field name="visit_date" />
@@ -35,6 +36,7 @@
 					<field name="price" />
 					<field name="data" />
 					<field name="score" />
+					<field name="contrato_id" />
 				</tree>
 			</field>
 		</record>

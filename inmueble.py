@@ -37,4 +37,5 @@ class inmueble(osv.Model):
         'score': fields.float('Valoracion', size=20),
 
         'visita_ids':fields.one2many('visita', 'inmueble_id', 'Visitas concertadas en el inmueble'),
+        'contrato_id':fields.many2one('contrato', 'Contrato'),
     }

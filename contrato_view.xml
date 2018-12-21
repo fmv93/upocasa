@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_upocasa_contrato_form">
+			<field name="name">view_upocasa_contrato_form</field>
+			<field name="model">contrato</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<field name="name" />
+					<field name="date" />
+					<field name="inmueble_id" />
+					<newline></newline>
+					<field name="cliente_ids" colspan="4" mode="tree">
+						<tree>
+							<field name="dni" />
+							<field name="name" />
+							<field name="lastname" />
+							<field name="phone" />
+							<field name="email" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_upocasa_contrato_tree_view">
+			<field name="name">view_upocasa_contrato_tree_view</field>
+			<field name="model">contrato</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="date" />
+					<field name="inmueble_id" />
+					<field name="cliente_ids" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="act_contrato" model="ir.actions.act_window">
+			<field name="name">Contratos</field>
+			<field name="res_model">contrato</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Contratos" id="contrato_submenu" parent="upocasa"
+			sequence="100" action="act_contrato" />
+		<menuitem name="Ver contratos" id="ver_contratos_submenu"
+			parent="contrato_submenu" sequence="150" action="act_contrato" />
+	</data>
+</openerp>

@@ -34,4 +34,5 @@ class visita(osv.Model):
         
         'cliente_dni':fields.many2one('cliente', 'Cliente', required=True),
         'inmueble_id':fields.many2one('inmueble','Inmueble', required=True),
+        'agente_dni_visita':fields.many2one('agente','Agente', required=True),
     }
