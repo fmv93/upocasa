@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Declaración del workflow -->
+		<record id="wkf_inmueble" model="workflow">
+			<field name="name">inmueble.basic</field>
+			<field name="osv">inmueble</field>
+			<field name="on_create">True</field>
+		</record>
+		<!-- Declaración de nodos -->
+		<record id="act_inmueble_aceptado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_inmueble" />
+			<field name="name">Aceptado</field>
+			<field name="kind">dummy</field>
+			<field name="flow_start">True</field>
+		</record>
+		<record id="act_inmueble_disponible" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_inmueble" />
+			<field name="name">Disponible</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'disponible'}) </field>
+		</record>
+		<record id="act_inmueble_alquilado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_inmueble" />
+			<field name="name">Alquilado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'alquilado'}) </field>
+			<field name="flow_stop">True</field>
+		</record>
+		<!-- Declaración de las transiciones -->
+		<record id="trans_aceptado_disponible" model="workflow.transition">
+			<field name="act_from" ref="act_inmueble_aceptado" />
+			<field name="act_to" ref="act_inmueble_disponible" />
+			<field name="signal">tasar</field>
+		</record>
+		<record id="trans_disponible_alquilado" model="workflow.transition">
+			<field name="act_from" ref="act_inmueble_disponible" />
+			<field name="act_to" ref="act_inmueble_alquilado" />
+			<field name="signal">alquilar</field>
+		</record>
+	</data>
+</openerp>

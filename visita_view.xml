@@ -16,6 +16,12 @@
 							<field name="dni" />
 						</tree>
 					</field>
+					<field name="agente_dni_visita" colspan="4" mode="tree">
+						<tree>
+							<field name="name" />
+							<field name="dni" />
+						</tree>
+					</field>
 					<field name="inmueble_id" colspan="4" mode="tree">
 						<tree>
 							<field name="id_inmueble" />
@@ -26,7 +32,6 @@
 							<field name="score" />
 						</tree>
 					</field>
-
 				</form>
 			</field>
 		</record>
