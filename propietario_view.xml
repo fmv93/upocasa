@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="view_upocasa_propietario_form">
+      <field name="name">view_upocasa_propietario_form</field>
+      <field name="model">propietario</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="form_string">
+          <field name="name" />
+          <field name="lastname" />
+          <field name="dni" />
+          <field name="phone" />
+          <field name="email"/>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_upocasa_propietario_tree_view">
+      <field name="name">view_upocasa_propietario_tree_view</field>
+      <field name="model">propietario</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="tree_string">
+          <field name="name" />
+          <field name="lastname" />
+          <field name="dni" />
+          <field name="phone" />
+          <field name="email"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record id="act_propietario" model="ir.actions.act_window">
+      <field name="name">propietarios</field>
+      <field name="res_model">propietario</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="propietarios" id="propietario_submenu" parent="upocasa"
+      sequence="100" action="act_propietario" />
+    <menuitem name="Ver propietarios" id="ver_propietarios_submenu" parent="propietario_submenu"
+      sequence="150" action="act_propietario" />
+  </data>
+</openerp>

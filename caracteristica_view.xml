@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="view_upocasa_caracteristica_form">
+      <field name="name">view_upocasa_caracteristica_form</field>
+      <field name="model">caracteristica</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="form_string">
+          <field name="name" />
+          <field name="description" />
+          <field name="value" />
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_upocasa_caracteristica_tree_view">
+      <field name="name">view_upocasa_caracteristica_tree_view</field>
+      <field name="model">caracteristica</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="tree_string">
+          <field name="name" />
+          <field name="description" />
+          <field name="value" />
+        </tree>
+      </field>
+    </record>
+
+
+    <record id="act_caracteristica" model="ir.actions.act_window">
+      <field name="name">caracteristica</field>
+      <field name="res_model">caracteristica</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="caracteristicas" id="caracteristica_submenu" parent="upocasa"
+      sequence="100" action="act_propietario" />
+    <menuitem name="Ver caracteristicas" id="ver_caracteristicas_submenu" parent="caracteristica_submenu"
+      sequence="150" action="act_caracteristica" />
+  </data>
+</openerp>
