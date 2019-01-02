@@ -14,16 +14,20 @@
 					<field name="data" />
 					<field name="score" />
 					<field name="contrato_id" />
-					<field name="visita_ids" colspan="4" mode="tree" nolabel="1">
+					<newline></newline>
+					<field name="visita_ids" colspan="4" mode="tree" on_change="on_change_class(state)">
 						<tree>
 							<field name="visit_date" />
 							<field name="cliente_dni" />
 						</tree>
 					</field>
-					<separator string="Workflow" colspan="4"/>
-					<field name='state' widget='statusbar' statusbar_visible="aceptado,disponible,alquilado" statusbar_colors='{"Aceptado":"orange","Disponible": "green", "Alquilado": "red"}'/>
-					<button name="tasar" states="aceptado" string="Confirmar tasación" colspan="1" icon="gtk-ok" />
-					<button name="alquilar" states="disponible" string="Alquilar" colspan="1" icon="gtk-apply" />
+					<separator string="Workflow" colspan="4" />
+					<field name='state' widget='statusbar' statusbar_visible="aceptado,disponible,alquiladovendido"
+						statusbar_colors='{"Aceptado":"orange","Disponible": "green","AlquiladoVendido": "red"}' colspan="4" />
+					<button name="tasar" states="aceptado" string="Confirmar tasación"
+						colspan="1" icon="gtk-ok" />
+					<button name="alquilarVender" states="disponible" string="Alquilar o vender"
+						colspan="1" icon="gtk-apply" />
 				</form>
 			</field>
 		</record>
@@ -39,6 +43,7 @@
 					<field name="price" />
 					<field name="data" />
 					<field name="score" />
+					<field name="totalVisitas" />
 					<field name="contrato_id" />
 				</tree>
 			</field>

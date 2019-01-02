@@ -38,7 +38,7 @@
       <field name="view_type">form</field>
       <field name="view_mode">tree,form</field>
     </record>
-    <menuitem name="propietarios" id="propietario_submenu" parent="upocasa"
+    <menuitem name="Propietarios" id="propietario_submenu" parent="upocasa"
       sequence="100" action="act_propietario" />
     <menuitem name="Ver propietarios" id="ver_propietarios_submenu" parent="propietario_submenu"
       sequence="150" action="act_propietario" />

@@ -19,15 +19,12 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-'''
-Created on 28 dic. 2018
 
-@author: usuario
-'''
 from osv import osv
 from osv import fields
 
 class caracteristica(osv.Model):
+    
     _name = 'caracteristica'
     _description = 'caracteristicas de un inmueble'
  
@@ -36,4 +33,3 @@ class caracteristica(osv.Model):
             'description': fields.char('Descripcion', size=120, required=False),
             'value': fields.integer('tasacion', size=20, required=True),
         }
-caracteristica()

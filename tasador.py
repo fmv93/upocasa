@@ -20,17 +20,11 @@
 #
 ##############################################################################
 
-'''
-Created on 28 dic. 2018
-
-@author: Ivan
-'''
-
 from osv import osv
 from osv import fields
 
-
 class tasador(osv.Model):
+    
     _name = 'tasador'
     _description = 'Persona encargada de tasar.'
  

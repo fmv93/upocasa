@@ -20,11 +20,11 @@
 			<field name="kind">function</field>
 			<field name="action">write({'state':'disponible'}) </field>
 		</record>
-		<record id="act_inmueble_alquilado" model="workflow.activity">
+		<record id="act_inmueble_alquiladovendido" model="workflow.activity">
 			<field name="wkf_id" ref="wkf_inmueble" />
-			<field name="name">Alquilado</field>
+			<field name="name">alquiladoVendido</field>
 			<field name="kind">function</field>
-			<field name="action">write({'state':'alquilado'}) </field>
+			<field name="action">write({'state':'alquiladovendido'}) </field>
 			<field name="flow_stop">True</field>
 		</record>
 		<!-- Declaración de las transiciones -->
@@ -33,10 +33,10 @@
 			<field name="act_to" ref="act_inmueble_disponible" />
 			<field name="signal">tasar</field>
 		</record>
-		<record id="trans_disponible_alquilado" model="workflow.transition">
+		<record id="trans_disponible_alquiladovendido" model="workflow.transition">
 			<field name="act_from" ref="act_inmueble_disponible" />
-			<field name="act_to" ref="act_inmueble_alquilado" />
-			<field name="signal">alquilar</field>
+			<field name="act_to" ref="act_inmueble_alquiladovendido" />
+			<field name="signal">alquilarVender</field>
 		</record>
 	</data>
 </openerp>

@@ -21,15 +21,11 @@
 #
 ##############################################################################
 
-'''
-Created on 28 dic. 2018
-    @author: Fernando
-'''
 from osv import osv
 from osv import fields
 
 class propietario(osv.Model):
-
+    
     _name = 'propietario'
     _description = 'propietario de un inmueble '
  
@@ -40,4 +36,3 @@ class propietario(osv.Model):
         'phone': fields.char('Telefono', size=60, required=True),
         'email': fields.char('Email', size=60, required=True),
     }
-propietario()

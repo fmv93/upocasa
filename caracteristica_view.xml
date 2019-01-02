@@ -34,7 +34,7 @@
       <field name="view_type">form</field>
       <field name="view_mode">tree,form</field>
     </record>
-    <menuitem name="caracteristicas" id="caracteristica_submenu" parent="upocasa"
+    <menuitem name="Caracteristicas" id="caracteristica_submenu" parent="upocasa"
       sequence="100" action="act_propietario" />
     <menuitem name="Ver caracteristicas" id="ver_caracteristicas_submenu" parent="caracteristica_submenu"
       sequence="150" action="act_caracteristica" />

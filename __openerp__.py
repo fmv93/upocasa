@@ -30,7 +30,7 @@
     Gestion de una inmobiliaria
     """,
     "init_xml": [],
-    'data': ['cliente_view.xml', 'visita_view.xml', 'inmueble_view.xml', 'contrato_view.xml', 'agente_view.xml', 'workflow/inmueble_workflow.xml'],
+    'data': ['cliente_view.xml', 'visita_view.xml', 'inmueble_view.xml', 'contrato_view.xml', 'agente_view.xml', 'tasador_view.xml', 'arquitecto_view.xml', 'propietario_view.xml', 'caracteristica_view.xml', 'workflow/inmueble_workflow.xml'],
     'demo_xml': [],
     'installable': True,
     'active': False

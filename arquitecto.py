@@ -20,16 +20,11 @@
 #
 ##############################################################################
 
-'''
-Created on 28 dic. 2018
-
-@author: usuario
-'''
-
 from osv import osv
 from osv import fields
 
 class arquitecto(osv.Model):
+    
     _name = 'arquitecto'
     _description = 'Persona dedicada al diseño de los inmuebles.'
  

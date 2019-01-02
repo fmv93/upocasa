@@ -27,6 +27,20 @@ class inmueble(osv.Model):
 
     _name = 'inmueble'
     _description = 'Inmueble gestionado por la inmobiliaria'
+    
+    def _totalVisitas(self, cr, uid, ids, field, arg,context=None):                    
+        res = {} 
+        
+        # Recorre todas las clases y calcula el número de gymusers asociados
+        for clase in self.browse(cr,uid,ids,context=context):        
+            res[clase.id] = len(clase.visita_ids)    
+        return res    
+    
+    def on_change_class(self,cr,uid,ids,estado):
+        warning={'title':'Estado Incorrecto',
+                 'message':'El inmueble debe estar tasado'}
+        if estado!="disponible" :
+            return {'value':{'name':'ERROR'}, 'warning':warning}
  
     _columns = {
         'id_inmueble': fields.integer('Id', size=9, required=True),
@@ -35,10 +49,12 @@ class inmueble(osv.Model):
         'price': fields.float('Precio', size=20, required=True),
         'data': fields.text('Datos'),
         'score': fields.float('Valoracion', size=20),
+        'totalVisitas': fields.function(_totalVisitas, type='integer', string='Total de visitas', store=True),
+
 
         'visita_ids':fields.one2many('visita', 'inmueble_id', 'Visitas concertadas en el inmueble'),
         'contrato_id':fields.many2one('contrato', 'Contrato'),
-        'state': fields.selection([('aceptado', 'Aceptado'),('disponible', 'Disponible'), ('alquilado', 'Alquilado')], 'Estados'),
+        'state': fields.selection([('aceptado', 'Aceptado'),('disponible', 'Disponible'), ('alquiladovendido', 'alquiladoVendido')], 'Estados'),
     }
     
     _defaults = {'state':'aceptado'}

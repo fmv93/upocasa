@@ -25,4 +25,8 @@ import visita
 import inmueble
 import contrato
 import agente
+import arquitecto
+import tasador
+import caracteristica
+import propietario
 import workflow
