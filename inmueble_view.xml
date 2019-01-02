@@ -23,7 +23,7 @@
 					</field>
 					<separator string="Workflow" colspan="4" />
 					<field name='state' widget='statusbar' statusbar_visible="aceptado,disponible,alquiladovendido"
-						statusbar_colors='{"Aceptado":"orange","Disponible": "green","AlquiladoVendido": "red"}' colspan="4" />
+						statusbar_colors='{"Aceptado":"orange","Disponible": "green","AlquiladoVendido": "red"}' colspan="3" />
 					<button name="tasar" states="aceptado" string="Confirmar tasación"
 						colspan="1" icon="gtk-ok" />
 					<button name="alquilarVender" states="disponible" string="Alquilar o vender"

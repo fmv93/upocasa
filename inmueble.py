@@ -54,7 +54,7 @@ class inmueble(osv.Model):
 
         'visita_ids':fields.one2many('visita', 'inmueble_id', 'Visitas concertadas en el inmueble'),
         'contrato_id':fields.many2one('contrato', 'Contrato'),
-        'state': fields.selection([('aceptado', 'Aceptado'),('disponible', 'Disponible'), ('alquiladovendido', 'alquiladoVendido')], 'Estados'),
+        'state': fields.selection([('aceptado', 'Aceptado'),('disponible', 'Disponible'), ('alquiladovendido', 'Alquilado o vendido')], 'Estados'),
     }
     
     _defaults = {'state':'aceptado'}

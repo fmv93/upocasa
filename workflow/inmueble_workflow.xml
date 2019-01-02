@@ -22,7 +22,7 @@
 		</record>
 		<record id="act_inmueble_alquiladovendido" model="workflow.activity">
 			<field name="wkf_id" ref="wkf_inmueble" />
-			<field name="name">alquiladoVendido</field>
+			<field name="name">Alquilado o vendido</field>
 			<field name="kind">function</field>
 			<field name="action">write({'state':'alquiladovendido'}) </field>
 			<field name="flow_stop">True</field>
