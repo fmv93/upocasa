@@ -23,16 +23,34 @@
 
 from osv import osv
 from osv import fields
+import re
 
 class propietario(osv.Model):
     
     _name = 'propietario'
     _description = 'propietario de un inmueble '
- 
+    
+    def _check_form(self, cr, uid, ids):   
+        patron_dni = re.compile('\d{8}[A-Z]{1}')
+        patron_phone = re.compile('\d{9}')
+        patron_email = re.compile('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$')
+        for clase in self.browse(cr, uid, ids):
+            if (patron_dni.search(clase.dni)and patron_phone.search(clase.phone)and patron_email.search(clase.email)):
+                return True
+            else:
+                return False
+
     _columns = {
         'dni': fields.char('DNI', size=9, required=True),
         'name': fields.char('Nombre', size=60, required=True),
         'lastname': fields.char('Apellidos', size=100, required=True),
         'phone': fields.char('Telefono', size=60, required=True),
         'email': fields.char('Email', size=60, required=True),
+        
+        'inmueble_id':fields.many2one('inmueble', 'Inmueble'),
     }
+    _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'dni','telefono','email' ])] 
+
+    
+    _sql_constraints=[('dni_uniq','unique (dni)','DNI de propietario registrado.')]
+    

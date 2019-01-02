@@ -10,6 +10,9 @@
           <field name="name" />
           <field name="description" />
           <field name="value" />
+          <newline></newline>
+          <field name="inmueble_id" colspan="4" />
+          <button string="Clear data" type="object" name="clear_record_data"/>
         </form>
       </field>
     </record>
@@ -21,8 +24,10 @@
       <field name="arch" type="xml">
         <tree string="tree_string">
           <field name="name" />
+          <field name="inmueble_id"/>
           <field name="description" />
           <field name="value" />
+
         </tree>
       </field>
     </record>

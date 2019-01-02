@@ -12,6 +12,8 @@
           <field name="dni" />
           <field name="phone" />
           <field name="email"/>
+          <newline></newline>
+          <field name="inmueble_id" colspan="4"/> 
         </form>
       </field>
     </record>

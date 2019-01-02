@@ -25,6 +25,7 @@ from osv import fields
 
 class caracteristica(osv.Model):
     
+    
     _name = 'caracteristica'
     _description = 'caracteristicas de un inmueble'
  
@@ -32,4 +33,12 @@ class caracteristica(osv.Model):
             'name': fields.char('Nombre', size=60, required=True),
             'description': fields.char('Descripcion', size=120, required=False),
             'value': fields.integer('tasacion', size=20, required=True),
+            
+            'inmueble_id':fields.many2one('inmueble','Inmueble', required=True),
         }
+
+    def clear_record_data(self,cr,uid,ids,context=None):
+        self.write(cr,uid, ids,{'name': ''}, context)
+        self.write(cr,uid, ids,{'description': ''}, context)
+        self.write(cr,uid, ids,{'value': 0}, context)
+      
