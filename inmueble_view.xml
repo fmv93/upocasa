@@ -66,6 +66,18 @@
 				</search>
 			</field>
 		</record>
+		
+		
+		<record model="ir.ui.view" id="view_upocasa_inmueble_graph_view">
+			<field name="name">view_upocasa_inmueble_graph_view</field>
+			<field name="model">inmueble</field>
+			<field name="arch" type="xml">
+				<graph string="Graph View" type="radar">
+					<field name="name" />
+					<field name="score" />
+				</graph>
+			</field>
+		</record>
 
 		<record id="act_inmueble" model="ir.actions.act_window">
 			<field name="name">Inmuebles</field>
