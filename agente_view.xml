@@ -15,7 +15,8 @@
 					<field name="visita_ids_agente" colspan="4">
 						<tree string="tree_string">
 							<field name="name" />
-							<field name="visit_date" />
+							<field name="visit_start" />
+							<field name="visit_end" />
 							<field name="cliente_dni" />
 							<field name="inmueble_id" />
 						</tree>

@@ -25,7 +25,8 @@
 					</field>
 					<field name="visita_ids" colspan="4">
 						<tree>
-							<field name="visit_date" />
+							<field name="visit_start" />
+							<field name="visit_end" />
 							<field name="inmueble_id" />
 						</tree>
 					</field>

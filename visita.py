@@ -30,7 +30,8 @@ class visita(osv.Model):
  
     _columns = {
         'name': fields.integer('Id', size=9, required=True),
-        'visit_date': fields.datetime('Fecha/Hora', size=60, required=True),
+        'visit_start': fields.datetime('Inicio', size=60, required=True),
+        'visit_end':fields.datetime('Fin',size=60,required=True),
         
         'cliente_dni':fields.many2one('cliente', 'Cliente', required=True),
         'inmueble_id':fields.many2one('inmueble','Inmueble', required=True),

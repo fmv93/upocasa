@@ -20,7 +20,8 @@
 					<newline></newline>
 					<field name="visita_ids" colspan="4" mode="tree" on_change="on_change_class(state)">
 						<tree>
-							<field name="visit_date" />
+							<field name="visit_start" />
+							<field name="visit_end" />
 							<field name="cliente_dni" />
 						</tree>
 					</field>
