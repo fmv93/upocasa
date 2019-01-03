@@ -22,15 +22,32 @@
 
 from osv import osv
 from osv import fields
+import re
 
 class tasador(osv.Model):
     
     _name = 'tasador'
     _description = 'Persona encargada de tasar.'
+    
+    def _check_form(self, cr, uid, ids):   
+        patron_dni = re.compile('\d{8}[A-Z]{1}')
+        patron_phone = re.compile('\d{9}')
+        for clase in self.browse(cr, uid, ids):
+            if (patron_dni.search(clase.dni) and patron_phone.search(clase.phone)):
+                return True
+            else:
+                return False
+ 
  
     _columns = {
         'dni': fields.char('DNI', size=9, required=True),
         'name': fields.char('Nombre', size=60, required=True),
         'lastname': fields.char('Apellidos', size=60, required=True),
         'phone': fields.char('Telefono', size=60, required=True),
+        'inmueble_ids':fields.one2many('inmueble', 'tasador_dni', 'Inmueble', required=True),
+        'arquitectos_cifs': fields.many2many('arquitecto','tasador_arquitecto_rel','tasador_dni','arquitecto_cif','Asesoramiento T2A'),
     }
+    
+
+    _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'DNI','telefono' ])] 
+    _sql_constraints=[('dni_uniq','unique (dni)','DNI de tasador registrado.')]  

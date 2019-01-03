@@ -11,6 +11,18 @@
 					<field name="lastname" />
 					<field name="dni" />
 					<field name="phone" />
+					<newline></newline>
+					<field name="arquitectos_cifs" colspan="4" />
+					<newline></newline>
+					<field name="inmueble_ids" colspan="4" mode="tree">
+						<tree>
+							<field name="name" />
+							<field name="postal_code" />
+							<field name="price" />
+							<field name="data" />
+							<field name="score" />
+						</tree>
+					</field>
 				</form>
 			</field>
 		</record>
@@ -25,6 +37,7 @@
 					<field name="lastname" />
 					<field name="dni" />
 					<field name="phone" />
+					<field name="inmueble_ids" />
 				</tree>
 			</field>
 		</record>
@@ -38,7 +51,9 @@
 		</record>
 		<menuitem name="Tasadores" id="tasador_submenu" parent="upocasa"
 			sequence="100" action="act_tasador" />
-		<menuitem name="Ver tasadores" id="ver_tasadores_submenu" parent="tasador_submenu"
-			sequence="150" action="act_tasador" />
+		<menuitem name="Ver tasadores" id="ver_tasadores_submenu"
+			parent="tasador_submenu" sequence="150" action="act_tasador" />
+
+
 	</data>
 </openerp>

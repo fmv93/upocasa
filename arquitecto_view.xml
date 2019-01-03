@@ -11,6 +11,8 @@
 					<field name="cif" />
 					<field name="address" />
 					<field name="phone" />
+					<newline></newline>
+					<field name="tasadores_dnis" colspan="4" />
 				</form>
 			</field>
 		</record>
