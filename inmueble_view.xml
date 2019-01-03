@@ -83,7 +83,7 @@
 			<field name="name">Inmuebles</field>
 			<field name="res_model">inmueble</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,graph</field>
 		</record>
 		<menuitem name="Inmuebles" id="inmueble_submenu" parent="upocasa"
 			sequence="100" action="act_inmueble" />
