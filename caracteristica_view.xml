@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-  <data>
-    <record model="ir.ui.view" id="view_upocasa_caracteristica_form">
-      <field name="name">view_upocasa_caracteristica_form</field>
-      <field name="model">caracteristica</field>
-      <field name="type">form</field>
-      <field name="arch" type="xml">
-        <form string="form_string">
-          <field name="name" />
-          <field name="description" />
-          <field name="value" />
-          <newline></newline>
-          <field name="inmueble_id" colspan="4" />
-          <button string="Clear data" type="object" name="clear_record_data"/>
-        </form>
-      </field>
-    </record>
+	<data>
+		<record model="ir.ui.view" id="view_upocasa_caracteristica_form">
+			<field name="name">view_upocasa_caracteristica_form</field>
+			<field name="model">caracteristica</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<field name="name" />
+					<field name="value" />
+					<newline></newline>
+					<field name="description" />
+					<newline></newline>
+					<field name="inmueble_ids" colspan="4" />
+					<!--<button string="Limpiar datos" type="object" name="clear_record_data"/> -->
+					<!--<button string="Limpiar nombres" type="object" name="clear_name"/> -->
+					<newline></newline>
+					<button string="limpiar descripcion" type="object"
+						name="clear_description" />
+					<button string="limpiar valoracion" type="object" name="clear_value" />
+				</form>
+			</field>
+		</record>
 
-    <record model="ir.ui.view" id="view_upocasa_caracteristica_tree_view">
-      <field name="name">view_upocasa_caracteristica_tree_view</field>
-      <field name="model">caracteristica</field>
-      <field name="type">tree</field>
-      <field name="arch" type="xml">
-        <tree string="tree_string">
-          <field name="name" />
-          <field name="inmueble_id"/>
-          <field name="description" />
-          <field name="value" />
+		<record model="ir.ui.view" id="view_upocasa_caracteristica_tree_view">
+			<field name="name">view_upocasa_caracteristica_tree_view</field>
+			<field name="model">caracteristica</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="inmueble_ids" />
+					<field name="description" />
+					<field name="value" />
 
-        </tree>
-      </field>
-    </record>
+				</tree>
+			</field>
+		</record>
 
 
-    <record id="act_caracteristica" model="ir.actions.act_window">
-      <field name="name">caracteristica</field>
-      <field name="res_model">caracteristica</field>
-      <field name="view_type">form</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    <menuitem name="Caracteristicas" id="caracteristica_submenu" parent="upocasa"
-      sequence="100" action="act_propietario" />
-    <menuitem name="Ver caracteristicas" id="ver_caracteristicas_submenu" parent="caracteristica_submenu"
-      sequence="150" action="act_caracteristica" />
-  </data>
+		<record id="act_caracteristica" model="ir.actions.act_window">
+			<field name="name">caracteristica</field>
+			<field name="res_model">caracteristica</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Caracteristicas" id="caracteristica_submenu"
+			parent="upocasa" sequence="100" action="act_propietario" />
+		<menuitem name="Ver caracteristicas" id="ver_caracteristicas_submenu"
+			parent="caracteristica_submenu" sequence="150" action="act_caracteristica" />
+	</data>
 </openerp>

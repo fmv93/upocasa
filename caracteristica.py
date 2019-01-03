@@ -22,6 +22,8 @@
 
 from osv import osv
 from osv import fields
+from curses.ascii import NUL
+from dns.rdatatype import NULL
 
 class caracteristica(osv.Model):
     
@@ -31,14 +33,22 @@ class caracteristica(osv.Model):
  
     _columns = {
             'name': fields.char('Nombre', size=60, required=True),
-            'description': fields.char('Descripcion', size=120, required=False),
-            'value': fields.integer('tasacion', size=20, required=True),
-            
-            'inmueble_id':fields.many2one('inmueble','Inmueble', required=True),
+            'description': fields.text(string="Descripcion"),
+            'value': fields.integer('Tasacion', size=20, required=True),
+            'inmueble_ids':fields.many2many('inmueble','caracteristica_inmueble_rel','caracteristica_name','inmueble_id_inmueble','Inmuebles'),
         }
 
     def clear_record_data(self,cr,uid,ids,context=None):
         self.write(cr,uid, ids,{'name': ''}, context)
         self.write(cr,uid, ids,{'description': ''}, context)
         self.write(cr,uid, ids,{'value': 0}, context)
-      
+        
+    def clear_name(self,cr,uid,ids,context=None):
+         self.write(cr,uid, ids,{'name': ''}, context)
+         
+    def clear_description(self,cr,uid,ids,context=None):
+        self.write(cr,uid, ids,{'description': ''}, context)
+
+    def clear_value(self,cr,uid,ids,context=None):
+        self.write(cr,uid, ids,{'value': 0}, context)
+        
