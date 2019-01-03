@@ -14,6 +14,7 @@
 					<field name="data" />
 					<field name="score" />
 					<field name="contrato_id" />
+					<field name="tasador_dni" />
 					<newline></newline>
 					<field name="visita_ids" colspan="4" mode="tree" on_change="on_change_class(state)">
 						<tree>
@@ -45,6 +46,7 @@
 					<field name="score" />
 					<field name="totalVisitas" />
 					<field name="contrato_id" />
+					<field name="tasador_dni" />
 				</tree>
 			</field>
 		</record>
