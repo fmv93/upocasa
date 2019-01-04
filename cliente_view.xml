@@ -7,15 +7,24 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="form_string">
-					<field name="name" />
-					<field name="lastname" />
-					<field name="dni" />
-					<field name="phone" />
-					<field name="email" />
-					<group colspan="4">
+					<group col="2" colspan="2">
+						<field name="name" />
+						<field name="lastname" />
+					</group>
+					<group col="2" colspan="2">
+						<field name="dni" />
+						<field name="phone" />
+					</group>
+					<group col="2" colspan="2">
+						<field name="email" />
+					</group>
+					<group col="8" colspan="2">
 						<field name="buyer" />
 						<field name="leaseholder" />
 					</group>
+					<newline></newline>
+
+
 					<field name="interests" colspan="4" />
 					<field name="contrato_ids" colspan="4">
 						<tree>
@@ -33,6 +42,10 @@
 				</form>
 			</field>
 		</record>
+
+
+
+
 		<record model="ir.ui.view" id="view_upocasa_cliente_tree_view">
 			<field name="name">view_upocasa_cliente_tree_view</field>
 			<field name="model">cliente</field>

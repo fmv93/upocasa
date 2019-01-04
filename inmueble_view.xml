@@ -19,14 +19,8 @@
 					<newline></newline>
 					<field name="caracteristica_ids" colspan="4" />
 					<newline></newline>
-					<field name="visita_ids" colspan="4" mode="tree"
-						on_change="on_change_class(state)">
-						<tree>
-							<field name="visit_start" />
-							<field name="visit_end" />
-							<field name="cliente_dni" />
-						</tree>
-					</field>
+					<field name="visita_ids" colspan="4" />
+					
 					<separator string="Workflow" colspan="4" />
 					<field name='state' widget='statusbar'
 						statusbar_visible="aceptado,disponible,alquiladovendido"
@@ -84,12 +78,50 @@
 				</graph>
 			</field>
 		</record>
+		
+		
+		<record model="ir.ui.view" id="inmueble_kanban_view">
+			<field name="name">view_upocasa_inmueble_kanban_view</field>
+			<field name="model">inmueble</field>
+			<field name="type">kanban</field>
+			<field name="arch" type="xml">
+				<kanban>
+					<templates>
+						<t t-name="kanban-box">
+							<div class="oe_resource_vignette">
+								<div class="oe_resource_image">
+									<a type="edit">
+										<img src="https://i.ibb.co/f1FSSyZ/logo.jpg" width ="100" />
+									</a>
+								</div>
+								<div class="oe_resource_details">
+									<ul>
+										<!--Here you have to write the object's field name which you want 
+											to display in kanban view -->
+										<li>
+											<field name="name" />
+										</li>
+										<li>
+											<field name="price" />
+										</li>
+										<li>
+											<field name="score" />
+										</li>
+									</ul>
+								</div>
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+
 
 		<record id="act_inmueble" model="ir.actions.act_window">
 			<field name="name">Inmuebles</field>
 			<field name="res_model">inmueble</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form,graph</field>
+			<field name="view_mode">tree,form,graph,kanban</field>
 		</record>
 		<menuitem name="Inmuebles" id="inmueble_submenu" parent="upocasa"
 			sequence="100" action="act_inmueble" />
