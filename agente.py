@@ -22,11 +22,21 @@
 
 from osv import osv
 from osv import fields
+import re
 
 class agente(osv.Model):
 
     _name = 'agente'
     _description = 'Agente de la inmobiliaria'
+
+    def _check_form(self, cr, uid, ids):   
+        patron_dni = re.compile('\d{8}[A-Z]{1}')
+        patron_phone = re.compile('\d{9}')
+        for clase in self.browse(cr, uid, ids):
+            if (patron_dni.search(clase.dni)and patron_phone.search(clase.phone)):
+                return True
+            else:
+                return False
  
     _columns = {
         'dni': fields.char('DNI', size=9, required=True),
@@ -37,3 +47,8 @@ class agente(osv.Model):
         'visita_ids_agente':fields.one2many('visita', 'agente_dni_visita', 'Visitas concertadas'),
         'contrato_ids_agente':fields.one2many('contrato', 'agente_dni_contrato', 'Contratos realizados'),
     }
+    
+    _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'dni','telefono' ])] 
+
+    
+    _sql_constraints=[('dni_uniq','unique (dni)','DNI de agente ya registrado.')]

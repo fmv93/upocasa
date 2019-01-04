@@ -22,6 +22,8 @@
 
 from osv import osv
 from osv import fields
+import re
+
 
 class contrato(osv.Model):
 
@@ -38,3 +40,5 @@ class contrato(osv.Model):
         'agente_dni_contrato':fields.many2one('agente', 'Agente', required=True),
         'inmueble_id':fields.many2one('inmueble', 'Inmueble'),
     }
+    
+    _sql_constraints=[('name_uniq','unique (name)','El identificador del contrato ya existe.')]

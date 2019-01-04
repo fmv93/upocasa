@@ -37,3 +37,5 @@ class visita(osv.Model):
         'inmueble_id':fields.many2one('inmueble','Inmueble', required=True),
         'agente_dni_visita':fields.many2one('agente','Agente', required=True),
     }
+    
+    _sql_constraints=[('name_uniq','unique (name)','El identificador de la visita ya existe.')]

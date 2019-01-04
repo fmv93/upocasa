@@ -22,12 +22,23 @@
 
 from osv import osv
 from osv import fields
+import re
 
 class cliente(osv.Model):
 
     _name = 'cliente'
     _description = 'Cliente de la inmobiliaria'
  
+    def _check_form(self, cr, uid, ids):   
+        patron_dni = re.compile('\d{8}[A-Z]{1}')
+        patron_phone = re.compile('\d{9}')
+        patron_email = re.compile('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$')
+        for clase in self.browse(cr, uid, ids):
+            if (patron_dni.search(clase.dni)and patron_phone.search(clase.phone)and patron_email.search(clase.email)):
+                return True
+            else:
+                return False
+
     _columns = {
         'dni': fields.char('DNI', size=9, required=True),
         'name': fields.char('Nombre', size=60, required=True),
@@ -41,3 +52,9 @@ class cliente(osv.Model):
         'visita_ids':fields.one2many('visita', 'cliente_dni', 'Visitas concertadas'),
         'contrato_ids':fields.many2one('contrato', 'Contrato'),
     }
+    
+    _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'dni','telefono','email' ])] 
+
+    
+    _sql_constraints=[('dni_uniq','unique (dni)','DNI de cliente ya registrado.')]
+    

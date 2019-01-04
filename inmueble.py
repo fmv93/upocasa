@@ -28,6 +28,13 @@ class inmueble(osv.Model):
     _name = 'inmueble'
     _description = 'Inmueble gestionado por la inmobiliaria'
     
+    def _check_form(self, cr, uid, ids):   
+        for clase in self.browse(cr, uid, ids):
+            if (clase.price>0):
+                return True
+            else:
+                return False
+            
     def _totalVisitas(self, cr, uid, ids, field, arg,context=None):                    
         res = {} 
         
@@ -61,3 +68,6 @@ class inmueble(osv.Model):
     }
     
     _defaults = {'state':'aceptado'}
+    
+    _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'precio' ])] 
+    _sql_constraints=[('id_inmueble_uniq','unique (id_inmueble)','Id del inmueble ya registrado.')]
