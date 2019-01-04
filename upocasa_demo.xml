@@ -60,8 +60,7 @@
 		</record>
 		<record id="caracteristica1" model="caracteristica">
 			<field name="name">Cercanía a parada de metro menor a 1km</field>
-			<field name="description">Parada de metro más cercana disponible a menos de
-				2km andando, unos 5 minutos andando.
+			<field name="description">Parada de metro a unos 5 minutos andando.
 			</field>
 			<field name="value">9</field>
 		</record>
