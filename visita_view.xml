@@ -8,8 +8,10 @@
 			<field name="arch" type="xml">
 				<form string="form_string">
 					<field name="name" />
-					<field name="visit_start" />
-					<field name="visit_end" />
+					<group colspan="2">
+						<field name="visit_start" />
+						<field name="visit_end" />
+					</group>
 					<newline></newline>
 					<field name="cliente_dni" colspan="4" mode="tree">
 						<tree>
