@@ -22,7 +22,7 @@
 
 from osv import osv
 from osv import fields
-impor re
+import re
 
 class inmueble(osv.Model):
 
