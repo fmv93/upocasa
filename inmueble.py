@@ -22,17 +22,15 @@
 
 from osv import osv
 from osv import fields
-import re
 
 class inmueble(osv.Model):
 
     _name = 'inmueble'
-    _description = 'Inmueble gestionado por la inmobiliaria'
-    patron_cp = re.compile('\d{5}')
+    _description = 'Inmueble gestionado por la inmobiliaria'   
     
-    def _check_form(self, cr, uid, ids):   
+    def _check_form(self, cr, uid, ids):
         for clase in self.browse(cr, uid, ids):
-            if (clase.price>0 and patron_cp.search(clase.postal_code)):
+            if (clase.price>0):
                 return True
             else:
                 return False
@@ -71,5 +69,5 @@ class inmueble(osv.Model):
     
     _defaults = {'state':'aceptado'}
     
-    _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'Codigo Postal','Precio' ])] 
+    _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'Precio' ])] 
     _sql_constraints=[('id_inmueble_uniq','unique (id_inmueble)','Id del inmueble ya registrado.')]
