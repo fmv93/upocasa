@@ -47,10 +47,10 @@ class cliente(osv.Model):
         'email': fields.char('Email', size=60, required=True),
         'buyer': fields.boolean('Comprador', required=False),
         'leaseholder': fields.boolean('Arrendatario', required=False),
-        'interests': fields.text('Intereses'), 
-        
+        'interests': fields.text('Intereses'),        
+                
         'visita_ids':fields.one2many('visita', 'cliente_dni', 'Visitas concertadas'),
-        'contrato_ids':fields.many2one('contrato', 'Contrato'),
+        'contrato_ids':fields.one2many('contrato','cliente_ids' ,'Contrato'),
     }
     
     _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'dni','telefono','email' ])] 
