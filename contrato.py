@@ -36,9 +36,9 @@ class contrato(osv.Model):
         'buy': fields.boolean('Compra', required=False),
         'lease': fields.boolean('Alquiler', required=False),
         
-        'cliente_ids':fields.one2many('cliente', 'contrato_ids', 'Clientes', required=True),
-        'agente_dni_contrato':fields.many2one('agente', 'Agente', required=True),
-        'inmueble_id':fields.many2one('inmueble', 'Inmueble'),
+        'cliente_ids':fields.many2one('cliente', 'Clientes', required=True),
+        'agente_dni_contrato':fields.many2one('agente','Agente', required=True),
+        'inmueble_id':fields.many2one('inmueble','Inmueble', required=True),
     }
     
     _sql_constraints=[('name_uniq','unique (name)','El identificador del contrato ya existe.')]
