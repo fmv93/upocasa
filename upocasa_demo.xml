@@ -163,27 +163,6 @@
 			<field name="tasador_dni" ref="tasador3" />
 			<field name="propietario_id" ref="propietario3" />
 		</record>
-		<record id="contrato1" model="contrato">
-			<field name="name">1</field>
-			<field name="date">13/11/2018</field>
-			<field name="buy">True</field>
-			<field name="agente_dni_contrato" ref="agente1"></field>
-			<field name="inmueble_id" ref="inmueble1"></field>
-		</record>
-		<record id="contrato2" model="contrato">
-			<field name="name">2</field>
-			<field name="date">04/12/2018</field>
-			<field name="lease">True</field>
-			<field name="agente_dni_contrato" ref="agente1"></field>
-			<field name="inmueble_id" ref="inmueble2"></field>
-		</record>
-		<record id="contrato3" model="contrato">
-			<field name="name">3</field>
-			<field name="date">03/01/2019</field>
-			<field name="lease">True</field>
-			<field name="agente_dni_contrato" ref="agente2"></field>
-			<field name="inmueble_id" ref="inmueble3"></field>
-		</record>
 		<record id="cliente1" model="cliente">
 			<field name="dni">77654898R</field>
 			<field name="name">Marina</field>
@@ -195,7 +174,6 @@
 				cercanía a parada de metro, dos plantas, salón luminoso, orientada
 				al sur
 			</field>
-			<field name="contrato_ids" ref="contrato1" />
 		</record>
 		<record id="cliente2" model="cliente">
 			<field name="dni">29876543U</field>
@@ -207,7 +185,6 @@
 			<field name="interests">Ático con ascensor, con cocina americana, en el
 				centro de la ciudad
 			</field>
-			<field name="contrato_ids" ref="contrato2" />
 		</record>
 		<record id="cliente3" model="cliente">
 			<field name="dni">87907654O</field>
@@ -218,7 +195,30 @@
 			<field name="buyer">True</field>
 			<field name="interests">Chalet con piscina
 			</field>
-			<field name="contrato_ids" ref="contrato3" />
+		</record>
+		<record id="contrato1" model="contrato">
+			<field name="name">1</field>
+			<field name="date">13/11/2018</field>
+			<field name="buy">True</field>
+			<field name="agente_dni_contrato" ref="agente1"></field>
+			<field name="inmueble_id" ref="inmueble1"></field>
+			<field name="cliente_ids" ref="cliente1" />
+		</record>
+		<record id="contrato2" model="contrato">
+			<field name="name">2</field>
+			<field name="date">04/12/2018</field>
+			<field name="lease">True</field>
+			<field name="agente_dni_contrato" ref="agente1"></field>
+			<field name="inmueble_id" ref="inmueble2"></field>
+			<field name="cliente_ids" ref="cliente2" />
+		</record>
+		<record id="contrato3" model="contrato">
+			<field name="name">3</field>
+			<field name="date">03/01/2019</field>
+			<field name="lease">True</field>
+			<field name="agente_dni_contrato" ref="agente2"></field>
+			<field name="inmueble_id" ref="inmueble3"></field>
+			<field name="cliente_ids" ref="cliente3" />
 		</record>
 		<record id="visita1" model="visita">
 			<field name="name">1</field>
