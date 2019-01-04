@@ -33,14 +33,13 @@
 					<field name="inmueble_ids" />
 					<field name="description" />
 					<field name="value" />
-
 				</tree>
 			</field>
 		</record>
 
 
 		<record id="act_caracteristica" model="ir.actions.act_window">
-			<field name="name">caracteristica</field>
+			<field name="name">Características</field>
 			<field name="res_model">caracteristica</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>

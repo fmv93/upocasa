@@ -29,13 +29,14 @@
           <field name="dni" />
           <field name="phone" />
           <field name="email"/>
+          <field name="inmueble_id"/> 
         </tree>
       </field>
     </record>
 
 
     <record id="act_propietario" model="ir.actions.act_window">
-      <field name="name">propietarios</field>
+      <field name="name">Propietarios</field>
       <field name="res_model">propietario</field>
       <field name="view_type">form</field>
       <field name="view_mode">tree,form</field>

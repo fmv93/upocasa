@@ -13,12 +13,14 @@
 					<field name="price" />
 					<field name="data" />
 					<field name="score" />
-					<field name="contrato_id" />
+					<field name="propietario_id" />
 					<field name="tasador_dni" />
+					<field name="contrato_id" />
 					<newline></newline>
 					<field name="caracteristica_ids" colspan="4" />
 					<newline></newline>
-					<field name="visita_ids" colspan="4" mode="tree" on_change="on_change_class(state)">
+					<field name="visita_ids" colspan="4" mode="tree"
+						on_change="on_change_class(state)">
 						<tree>
 							<field name="visit_start" />
 							<field name="visit_end" />
@@ -26,8 +28,10 @@
 						</tree>
 					</field>
 					<separator string="Workflow" colspan="4" />
-					<field name='state' widget='statusbar' statusbar_visible="aceptado,disponible,alquiladovendido"
-						statusbar_colors='{"Aceptado":"orange","Disponible": "green","AlquiladoVendido": "red"}' colspan="3" />
+					<field name='state' widget='statusbar'
+						statusbar_visible="aceptado,disponible,alquiladovendido"
+						statusbar_colors='{"Aceptado":"orange","Disponible": "green","AlquiladoVendido": "red"}'
+						colspan="3" />
 					<button name="tasar" states="aceptado" string="Confirmar tasación"
 						colspan="1" icon="gtk-ok" />
 					<button name="alquilarVender" states="disponible" string="Alquilar o vender"
@@ -47,9 +51,11 @@
 					<field name="price" />
 					<field name="data" />
 					<field name="score" />
-					<field name="totalVisitas" />
+					<field name="totalvisitas" />
 					<field name="contrato_id" />
 					<field name="tasador_dni" />
+					<field name="propietario_id" />
+					<field name="caracteristica_ids" />
 				</tree>
 			</field>
 		</record>
@@ -67,15 +73,14 @@
 				</search>
 			</field>
 		</record>
-		
-		
+
 		<record model="ir.ui.view" id="view_upocasa_inmueble_graph_view">
 			<field name="name">view_upocasa_inmueble_graph_view</field>
 			<field name="model">inmueble</field>
 			<field name="arch" type="xml">
 				<graph string="Graph View" type="radar">
 					<field name="name" />
-					<field name="score" />
+					<field name="totalvisitas" />
 				</graph>
 			</field>
 		</record>

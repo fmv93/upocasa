@@ -38,6 +38,7 @@
 					<field name="dni" />
 					<field name="phone" />
 					<field name="inmueble_ids" />
+					<field name="arquitectos_cifs" />
 				</tree>
 			</field>
 		</record>

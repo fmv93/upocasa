@@ -27,6 +27,7 @@
 					<field name="cif" />
 					<field name="address" />
 					<field name="phone" />
+					<field name="tasadores_dnis"/>
 				</tree>
 			</field>
 		</record>

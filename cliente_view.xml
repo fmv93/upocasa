@@ -47,6 +47,8 @@
 					<field name="buyer" />
 					<field name="leaseholder" />
 					<field name="interests" />
+					<field name="visita_ids" />
+					<field name="contrato_ids" />
 				</tree>
 			</field>
 		</record>

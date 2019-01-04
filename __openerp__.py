@@ -31,7 +31,7 @@
     """,
     "init_xml": [],
     'data': ['cliente_view.xml', 'visita_view.xml', 'inmueble_view.xml', 'contrato_view.xml', 'agente_view.xml', 'tasador_view.xml', 'arquitecto_view.xml', 'propietario_view.xml', 'caracteristica_view.xml', 'workflow/inmueble_workflow.xml'],
-    'demo_xml': [],
+    'demo_xml': ['upocasa_demo.xml'],
     'installable': True,
     'active': False
 }

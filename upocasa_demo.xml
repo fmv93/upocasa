@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<openerp>
+	<data noupdate="1">
+		<record id="agente1" model="agente">
+			<field name="dni">21334565T</field>
+			<field name="name">Federico</field>
+			<field name="lastname">Rodríguez</field>
+			<field name="phone">654324567</field>
+		</record>
+		<record id="arquitecto1" model="arquitecto">
+			<field name="name">Roberto Parra</field>
+			<field name="cif">56786679X</field>
+			<field name="address">Calle Historiador Juan Manzano, 2, 3ºB</field>
+			<field name="phone">955764534</field>
+		</record>
+		<record id="arquitecto2" model="arquitecto">
+			<field name="name">B2C Arquitectura</field>
+			<field name="cif">66738965J</field>
+			<field name="address">Avenida de Eduardo Dato, 2, 5ºB</field>
+			<field name="phone">645789876</field>
+		</record>
+		<record id="tasador1" model="tasador">
+			<field name="dni">77896543L</field>
+			<field name="name">Francisco</field>
+			<field name="lastname">López</field>
+			<field name="phone">654321245</field>
+			<field name="arquitectos_cifs" eval="[(6, 0, [arquitecto1,arquitecto2, ])]"></field>
+		</record>
+		<record id="caracteristica1" model="caracteristica">
+			<field name="name">Cercanía a parada de metro menor a 1km</field>
+			<field name="description">Parada de metro más cercana disponible a menos de
+				2km andando, unos 5 minutos andando.
+			</field>
+			<field name="value">9</field>
+		</record>
+		<record id="caracteristica2" model="caracteristica">
+			<field name="name">Piscina de diseño "natural"</field>
+			<field name="description">Piscina de diseño con estilo "natural", que se
+				integra en el espacio natural en el que se encuentra. Menor a 4
+				metros cuadrados.
+			</field>
+			<field name="value">10</field>
+		</record>
+		<record id="caracteristica3" model="caracteristica">
+			<field name="name">Cocina americana</field>
+			<field name="description">Cocina de estilo americano, integrada en el salón
+				de la vivienda.
+			</field>
+			<field name="value">8</field>
+		</record>
+		<record id="caracteristica4" model="caracteristica">
+			<field name="name">Porche</field>
+			<field name="description">Espacio exterior privado, en el jardín del
+				inmueble, apto para la ubicación de un espacio de descanso.
+			</field>
+			<field name="value">7</field>
+		</record>
+		<record id="caracteristica5" model="caracteristica">
+			<field name="name">Ascensor</field>
+			<field name="description">VIvienda con ascensor disponible.
+			</field>
+			<field name="value">7</field>
+		</record>
+		<record id="caracteristica6" model="caracteristica">
+			<field name="name">Alta oferta de ocio</field>
+			<field name="description">Vivienda cercana a espacios de ocio tales como cine, bares, restaurantes, etc.
+			</field>
+			<field name="value">7</field>
+		</record>
+		<record id="propietario1" model="propietario">
+			<field name="name">Florencio</field>
+			<field name="lastname">Casanueva</field>
+			<field name="dni">34567890K</field>
+			<field name="phone">675432445</field>
+			<field name="email">floren@gmail.com</field>
+		</record>
+		<record id="inmueble1" model="inmueble">
+			<field name="id_inmueble">1</field>
+			<field name="name">Calle Rómulo, 23</field>
+			<field name="postal_code">41089</field>
+			<field name="totalvisitas">2</field>
+			<field name="price">150000</field>
+			<field name="data">Vivienda adosada unifamiliar de dos plantas, 150
+				metros cuadrados. Jardín con piscina. 4 habitaciones y 2 cuartos de
+				baño.
+			</field>
+			<field name="score">85</field>
+			<field name="caracteristica_ids"
+				eval="[(6, 0, [caracteristica1,caracteristica2,caracteristica3, ])]"></field>
+			<field name="tasador_dni" ref="tasador1" />
+			<field name="propietario_id" ref="propietario1" />
+		</record>
+		<record id="inmueble2" model="inmueble">
+			<field name="id_inmueble">2</field>
+			<field name="name">Urbanización Torrequinto, 76</field>
+			<field name="postal_code">41500</field>
+			<field name="totalvisitas">1</field>
+			<field name="price">200000</field>
+			<field name="data">Chalet independiente de una planta, 200 metros
+				cuadrados. Jardín de 100 metros cuadrados con piscina y porche.
+				Garage.
+			</field>
+			<field name="score">90</field>
+			<field name="caracteristica_ids" eval="[(6, 0, [caracteristica2,caracteristica4,caracteristica6, ])]"></field>
+			<field name="tasador_dni" ref="tasador1" />
+			<field name="propietario_id" ref="propietario1" />
+		</record>
+		<record id="inmueble3" model="inmueble">
+			<field name="id_inmueble">3</field>
+			<field name="name">Calle Reyes Católicos, 3, 4ºA</field>
+			<field name="postal_code">41001</field>
+			<field name="totalvisitas">0</field>
+			<field name="price">120000</field>
+			<field name="data">Ático en el centro de Sevilla
+			</field>
+			<field name="score">80</field>
+			<field name="caracteristica_ids" eval="[(6, 0, [caracteristica5,caracteristica6, ])]"></field>
+			<field name="tasador_dni" ref="tasador1" />
+			<field name="propietario_id" ref="propietario1" />
+		</record>
+		<record id="contrato1" model="contrato">
+			<field name="name">1</field>
+			<field name="date">13/11/2018</field>
+			<field name="buy">True</field>
+			<field name="agente_dni_contrato" ref="agente1"></field>
+			<field name="inmueble_id" ref="inmueble1"></field>
+		</record>
+		<record id="contrato2" model="contrato">
+			<field name="name">2</field>
+			<field name="date">04/12/2018</field>
+			<field name="lease">True</field>
+			<field name="agente_dni_contrato" ref="agente1"></field>
+			<field name="inmueble_id" ref="inmueble2"></field>
+		</record>
+		<record id="cliente1" model="cliente">
+			<field name="dni">77654898R</field>
+			<field name="name">Marina</field>
+			<field name="lastname">Ortiz</field>
+			<field name="phone">643213456</field>
+			<field name="email">marina@gmail.com</field>
+			<field name="buyer">True</field>
+			<field name="interests">Casas independientes, con jardín y con piscina,
+				cercanía a parada de metro, dos plantas, salón luminoso, orientada
+				al sur
+			</field>
+			<field name="contrato_ids" ref="contrato1" />
+		</record>
+		<record id="cliente2" model="cliente">
+			<field name="dni">29876543U</field>
+			<field name="name">Pedro</field>
+			<field name="lastname">Gonzalez</field>
+			<field name="phone">654554438</field>
+			<field name="email">pedrogonzalez@gmail.com</field>
+			<field name="leaseholder">True</field>
+			<field name="interests">Ático con ascensor, con cocina americana, en el
+				centro de la ciudad
+			</field>
+			<field name="contrato_ids" ref="contrato2" />
+		</record>
+		<record id="visita1" model="visita">
+			<field name="name">1</field>
+			<field name="visit_start">16/12/2018 12:00:00</field>
+			<field name="visit_end">16/12/2018 13:00:00</field>
+			<field name="cliente_dni" ref="cliente1"></field>
+			<field name="agente_dni_visita" ref="agente1"></field>
+			<field name="inmueble_id" ref="inmueble1"></field>
+		</record>
+		<record id="visita2" model="visita">
+			<field name="name">2</field>
+			<field name="visit_start">20/12/2018 10:00:00</field>
+			<field name="visit_end">20/12/2018 11:00:00</field>
+			<field name="cliente_dni" ref="cliente1"></field>
+			<field name="agente_dni_visita" ref="agente1"></field>
+			<field name="inmueble_id" ref="inmueble1"></field>
+		</record>
+		<record id="visita3" model="visita">
+			<field name="name">3</field>
+			<field name="visit_start">10/12/2018 11:00:00</field>
+			<field name="visit_end">10/12/2018 12:00:00</field>
+			<field name="cliente_dni" ref="cliente2"></field>
+			<field name="agente_dni_visita" ref="agente1"></field>
+			<field name="inmueble_id" ref="inmueble2"></field>
+		</record>
+		<record id="inmueble1" model="inmueble">
+			<field name="contrato_id" ref="contrato1" />
+		</record>
+		<record id="inmueble2" model="inmueble">
+			<field name="contrato_id" ref="contrato2" />
+		</record>
+		<record id="arquitecto1" model="arquitecto">
+			<field name="tasadores_dnis" eval="[(6, 0, [tasador1, ])]"></field>
+		</record>
+		<record id="arquitecto2" model="arquitecto">
+			<field name="tasadores_dnis" eval="[(6, 0, [tasador1, ])]"></field>
+		</record>
+		<record id="arquitecto2" model="arquitecto">
+			<field name="tasadores_dnis" eval="[(6, 0, [tasador1, ])]"></field>
+		</record>
+		<record id="caracteristica1" model="caracteristica">
+			<field name="inmueble_ids" eval="[(6, 0, [inmueble1, ])]"></field>
+		</record>
+		<record id="caracteristica2" model="caracteristica">
+			<field name="inmueble_ids" eval="[(6, 0, [inmueble1,inmueble2 ])]"></field>
+		</record>
+		<record id="caracteristica3" model="caracteristica">
+			<field name="inmueble_ids" eval="[(6, 0, [inmueble1, ])]"></field>
+		</record>
+		<record id="caracteristica4" model="caracteristica">
+			<field name="inmueble_ids" eval="[(6, 0, [inmueble2, ])]"></field>
+		</record>
+		<record id="caracteristica5" model="caracteristica">
+			<field name="inmueble_ids" eval="[(6, 0, [inmueble3, ])]"></field>
+		</record>
+		<record id="caracteristica6" model="caracteristica">
+			<field name="inmueble_ids" eval="[(6, 0, [inmueble2,inmueble3, ])]"></field>
+		</record>
+	</data>
+</openerp>

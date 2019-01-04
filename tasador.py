@@ -45,7 +45,7 @@ class tasador(osv.Model):
         'lastname': fields.char('Apellidos', size=60, required=True),
         'phone': fields.char('Telefono', size=60, required=True),
         'inmueble_ids':fields.one2many('inmueble', 'tasador_dni', 'Inmueble', required=True),
-        'arquitectos_cifs': fields.many2many('arquitecto','tasador_arquitecto_rel','tasador_dni','arquitecto_cif','Asesoramiento T2A'),
+        'arquitectos_cifs': fields.many2many('arquitecto','tasador_arquitecto_rel','tasador_dni','arquitecto_cif','Es asesorado por'),
     }
     
 

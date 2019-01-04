@@ -33,8 +33,11 @@
 				<tree string="tree_string">
 					<field name="name" />
 					<field name="date" />
+					<field name="buy" />
+					<field name="lease" />
 					<field name="inmueble_id" />
 					<field name="cliente_ids" />
+					<field name="agente_dni_contrato" />
 				</tree>
 			</field>
 		</record>

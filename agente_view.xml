@@ -8,9 +8,9 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="form_string">
+					<field name="dni" />
 					<field name="name" />
 					<field name="lastname" />
-					<field name="dni" />
 					<field name="phone" />
 					<field name="visita_ids_agente" colspan="4">
 						<tree string="tree_string">
@@ -38,12 +38,12 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
+					<field name="dni" />
 					<field name="name" />
 					<field name="lastname" />
-					<field name="dni" />
 					<field name="phone" />
-					<field name="visita_ids_agente"/>
-					<field name="contrato_ids_agente"/>
+					<field name="visita_ids_agente" />
+					<field name="contrato_ids_agente" />
 				</tree>
 			</field>
 		</record>

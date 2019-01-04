@@ -49,7 +49,7 @@ class inmueble(osv.Model):
         'price': fields.float('Precio', size=20, required=True),
         'data': fields.text('Datos'),
         'score': fields.float('Valoracion', size=20),
-        'totalVisitas': fields.function(_totalVisitas, type='integer', string='Total de visitas', store=True),
+        'totalvisitas': fields.function(_totalVisitas, type='integer', string='Total de visitas', store=True),
 
 
         'visita_ids':fields.one2many('visita', 'inmueble_id', 'Visitas concertadas en el inmueble'),

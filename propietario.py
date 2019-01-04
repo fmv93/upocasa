@@ -47,7 +47,7 @@ class propietario(osv.Model):
         'phone': fields.char('Telefono', size=60, required=True),
         'email': fields.char('Email', size=60, required=True),
         
-        'inmueble_id':fields.many2one('inmueble', 'Inmueble'),
+        'inmueble_id':fields.one2many('inmueble', 'propietario_id', 'Inmuebles del propietario'),
     }
     _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'dni','telefono','email' ])] 
 
