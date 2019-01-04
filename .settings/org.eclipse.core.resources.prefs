@@ -9,3 +9,4 @@ encoding/contrato.py=utf-8
 encoding/inmueble.py=utf-8
 encoding/propietario.py=utf-8
 encoding/tasador.py=utf-8
+encoding/visita.py=utf-8

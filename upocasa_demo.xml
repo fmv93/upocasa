@@ -7,6 +7,18 @@
 			<field name="lastname">Rodríguez</field>
 			<field name="phone">654324567</field>
 		</record>
+		<record id="agente2" model="agente">
+			<field name="dni">55649876T</field>
+			<field name="name">Lucía</field>
+			<field name="lastname">Flores</field>
+			<field name="phone">647897654</field>
+		</record>
+		<record id="agente3" model="agente">
+			<field name="dni">77654898J</field>
+			<field name="name">Antonio</field>
+			<field name="lastname">Sánchez</field>
+			<field name="phone">652322244</field>
+		</record>
 		<record id="arquitecto1" model="arquitecto">
 			<field name="name">Roberto Parra</field>
 			<field name="cif">56786679X</field>
@@ -19,12 +31,32 @@
 			<field name="address">Avenida de Eduardo Dato, 2, 5ºB</field>
 			<field name="phone">645789876</field>
 		</record>
+		<record id="arquitecto3" model="arquitecto">
+			<field name="name">Arquitectos del Campo</field>
+			<field name="cif">54334789Y</field>
+			<field name="address">Plaza Federico García Lorca, 3</field>
+			<field name="phone">955765432</field>
+		</record>
 		<record id="tasador1" model="tasador">
 			<field name="dni">77896543L</field>
 			<field name="name">Francisco</field>
 			<field name="lastname">López</field>
 			<field name="phone">654321245</field>
 			<field name="arquitectos_cifs" eval="[(6, 0, [arquitecto1,arquitecto2, ])]"></field>
+		</record>
+		<record id="tasador2" model="tasador">
+			<field name="dni">79865540H</field>
+			<field name="name">Julia</field>
+			<field name="lastname">Ruibal</field>
+			<field name="phone">660998076</field>
+			<field name="arquitectos_cifs" eval="[(6, 0, [arquitecto1,arquitecto2,arquitecto3 ])]"></field>
+		</record>
+		<record id="tasador3" model="tasador">
+			<field name="dni">65443321R</field>
+			<field name="name">Andrés</field>
+			<field name="lastname">Arana</field>
+			<field name="phone">665443876</field>
+			<field name="arquitectos_cifs" eval="[(6, 0, [arquitecto3, ])]"></field>
 		</record>
 		<record id="caracteristica1" model="caracteristica">
 			<field name="name">Cercanía a parada de metro menor a 1km</field>
@@ -59,13 +91,13 @@
 			<field name="name">Ascensor</field>
 			<field name="description">VIvienda con ascensor disponible.
 			</field>
-			<field name="value">7</field>
+			<field name="value">8</field>
 		</record>
 		<record id="caracteristica6" model="caracteristica">
 			<field name="name">Alta oferta de ocio</field>
 			<field name="description">Vivienda cercana a espacios de ocio tales como cine, bares, restaurantes, etc.
 			</field>
-			<field name="value">7</field>
+			<field name="value">9</field>
 		</record>
 		<record id="propietario1" model="propietario">
 			<field name="name">Florencio</field>
@@ -73,6 +105,20 @@
 			<field name="dni">34567890K</field>
 			<field name="phone">675432445</field>
 			<field name="email">floren@gmail.com</field>
+		</record>
+		<record id="propietario2" model="propietario">
+			<field name="name">Lorenzo</field>
+			<field name="lastname">Santos</field>
+			<field name="dni">77669890L</field>
+			<field name="phone">690898776</field>
+			<field name="email">lorensantos@gmail.com</field>
+		</record>
+		<record id="propietario3" model="propietario">
+			<field name="name">Rodolfo</field>
+			<field name="lastname">Ramírez</field>
+			<field name="dni">79885432D</field>
+			<field name="phone">600987654</field>
+			<field name="email">rodora@gmail.com</field>
 		</record>
 		<record id="inmueble1" model="inmueble">
 			<field name="id_inmueble">1</field>
@@ -102,8 +148,8 @@
 			</field>
 			<field name="score">90</field>
 			<field name="caracteristica_ids" eval="[(6, 0, [caracteristica2,caracteristica4,caracteristica6, ])]"></field>
-			<field name="tasador_dni" ref="tasador1" />
-			<field name="propietario_id" ref="propietario1" />
+			<field name="tasador_dni" ref="tasador2" />
+			<field name="propietario_id" ref="propietario2" />
 		</record>
 		<record id="inmueble3" model="inmueble">
 			<field name="id_inmueble">3</field>
@@ -115,8 +161,8 @@
 			</field>
 			<field name="score">80</field>
 			<field name="caracteristica_ids" eval="[(6, 0, [caracteristica5,caracteristica6, ])]"></field>
-			<field name="tasador_dni" ref="tasador1" />
-			<field name="propietario_id" ref="propietario1" />
+			<field name="tasador_dni" ref="tasador3" />
+			<field name="propietario_id" ref="propietario3" />
 		</record>
 		<record id="contrato1" model="contrato">
 			<field name="name">1</field>
@@ -131,6 +177,13 @@
 			<field name="lease">True</field>
 			<field name="agente_dni_contrato" ref="agente1"></field>
 			<field name="inmueble_id" ref="inmueble2"></field>
+		</record>
+		<record id="contrato3" model="contrato">
+			<field name="name">3</field>
+			<field name="date">03/01/2019</field>
+			<field name="lease">True</field>
+			<field name="agente_dni_contrato" ref="agente2"></field>
+			<field name="inmueble_id" ref="inmueble3"></field>
 		</record>
 		<record id="cliente1" model="cliente">
 			<field name="dni">77654898R</field>
@@ -156,6 +209,17 @@
 				centro de la ciudad
 			</field>
 			<field name="contrato_ids" ref="contrato2" />
+		</record>
+		<record id="cliente3" model="cliente">
+			<field name="dni">87907654O</field>
+			<field name="name">Teresa</field>
+			<field name="lastname">González</field>
+			<field name="phone">677543291</field>
+			<field name="email">teresaglez@gmail.com</field>
+			<field name="buyer">True</field>
+			<field name="interests">Chalet con piscina
+			</field>
+			<field name="contrato_ids" ref="contrato3" />
 		</record>
 		<record id="visita1" model="visita">
 			<field name="name">1</field>
@@ -187,11 +251,17 @@
 		<record id="inmueble2" model="inmueble">
 			<field name="contrato_id" ref="contrato2" />
 		</record>
+		<record id="inmueble3" model="inmueble">
+			<field name="contrato_id" ref="contrato3" />
+		</record>
 		<record id="arquitecto1" model="arquitecto">
-			<field name="tasadores_dnis" eval="[(6, 0, [tasador1, ])]"></field>
+			<field name="tasadores_dnis" eval="[(6, 0, [tasador1,tasador2 ])]"></field>
 		</record>
 		<record id="arquitecto2" model="arquitecto">
-			<field name="tasadores_dnis" eval="[(6, 0, [tasador1, ])]"></field>
+			<field name="tasadores_dnis" eval="[(6, 0, [tasador1,tasador2 ])]"></field>
+		</record>
+		<record id="arquitecto3" model="arquitecto">
+			<field name="tasadores_dnis" eval="[(6, 0, [tasador2,tasador3 ])]"></field>
 		</record>
 		<record id="arquitecto2" model="arquitecto">
 			<field name="tasadores_dnis" eval="[(6, 0, [tasador1, ])]"></field>
