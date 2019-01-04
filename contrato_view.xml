@@ -10,17 +10,12 @@
 				<form string="form_string">
 					<field name="name" />
 					<field name="date" />
-					<field name="inmueble_id" />
 					<newline></newline>
-					<field name="cliente_ids" colspan="4" mode="tree">
-						<tree>
-							<field name="dni" />
-							<field name="name" />
-							<field name="lastname" />
-							<field name="phone" />
-							<field name="email" />
-						</tree>
-					</field>
+					<field name="agente_dni_contrato" />
+					<newline></newline>
+					<field name="cliente_ids" />
+					<newline></newline>
+					<field name="inmueble_id" />
 				</form>
 			</field>
 		</record>
