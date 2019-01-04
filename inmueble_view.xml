@@ -45,6 +45,7 @@
 					<field name="price" />
 					<field name="data" />
 					<field name="score" />
+					<field name="state" />
 					<field name="totalvisitas" />
 					<field name="contrato_id" />
 					<field name="tasador_dni" />
