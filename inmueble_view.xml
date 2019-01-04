@@ -74,7 +74,7 @@
 			<field name="arch" type="xml">
 				<graph string="Graph View" type="radar">
 					<field name="name" />
-					<field name="totalvisitas" />
+					<field name="score" />
 				</graph>
 			</field>
 		</record>
