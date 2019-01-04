@@ -43,7 +43,7 @@ class arquitecto(osv.Model):
         'name': fields.char('Nombre', size=60, required=True),
         'address': fields.char('Direccion', size=60, required=True),
         'phone': fields.char('Telefono', size=9, required=True),
-        'tasadores_dnis': fields.many2many('tasador','arquitecto_tasador_rel','arquitecto_cif','tasador_dni','Asesora a')
+        'tasadores_dnis': fields.many2many('tasador','tasador_arquitecto_rel','arquitecto_cif','tasador_dni','Asesora a')
     }
     
     _constraints = [(_check_form, '¡ Errores en el formulario !' , [ 'CIF','telefono' ])] 
