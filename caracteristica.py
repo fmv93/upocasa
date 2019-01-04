@@ -35,7 +35,7 @@ class caracteristica(osv.Model):
             'name': fields.char('Nombre', size=60, required=True),
             'description': fields.text(string="Descripcion"),
             'value': fields.integer('Tasacion', size=20, required=True),
-            'inmueble_ids':fields.many2many('inmueble','caracteristica_inmueble_rel','caracteristica_name','inmueble_id_inmueble','Inmuebles'),
+            'inmueble_ids':fields.many2many('inmueble','inmueble_caracteristica_rel','caracteristica_name','inmueble_id_inmueble','Inmuebles'),
         }
 
     def clear_record_data(self,cr,uid,ids,context=None):
